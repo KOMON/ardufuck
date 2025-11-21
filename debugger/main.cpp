@@ -140,6 +140,7 @@ int main() {
   vmCtx.fun("getInput", &VMCtx::getInput);
   vmCtx.fun("prev", &VMCtx::prev);
   vmCtx.fun("next", &VMCtx::next);
+
   auto value = luaL_dofile(l, "debugger.lua");
 
   if (value == 1)

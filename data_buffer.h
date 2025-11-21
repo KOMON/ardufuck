@@ -10,7 +10,7 @@ public:
   ~DataBuffer();
 
   char current() const;
-  void rewind();
+  void reset();
 
   void left();
   void right();

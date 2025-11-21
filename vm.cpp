@@ -88,7 +88,8 @@ Instruction VM::currentInstruction() { return m_program_buffer.current(); }
 char VM::currentCell() { return m_data_buffer.current(); }
 
 void VM::reset() {
-  m_data_buffer.rewind();
+  m_data_buffer.reset();
   m_program_buffer.rewind();
   m_done = false;
+  m_callbacks.reset();
 }

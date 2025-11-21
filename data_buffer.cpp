@@ -11,7 +11,11 @@ bool DataBuffer::atEnd() { return m_dp == &m_data[m_data_size - 1]; }
 
 char DataBuffer::current() const { return *m_dp; }
 
-void DataBuffer::rewind() { m_dp = m_data; }
+void DataBuffer::reset() {
+  for (; m_dp != m_data; m_dp--) {
+    *m_dp = 0;
+  }
+}
 
 void DataBuffer::left() {
   if (atStart()) {

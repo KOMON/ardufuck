@@ -130,6 +130,18 @@ GameState runComplete(Arduboy2& arduboy, VM& vm) {
 
 void draw(Arduboy2& arduboy, GameState game_state, Editor& editor, VM& vm, ArduboyCallbacks &callbacks) {
   arduboy.clear();
+
+  arduboy.setTextColor(BLACK);
+  arduboy.setTextBackground(WHITE);
+  if (game_state < GameState::run_init) {
+    arduboy.println("^v chg inst <> mv cur");
+  } else {
+    arduboy.println("   A start, > fast   ");
+  }
+
+  arduboy.setTextColor(WHITE);
+  arduboy.setTextBackground(BLACK);
+  
   arduboy.setTextWrap(true);
   for (Instruction *i = editor.begin(); i != editor.end(); i++) {
     if (i == editor.curr()) {
